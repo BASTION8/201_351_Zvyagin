@@ -4,12 +4,12 @@
 <img align="center" src="https://github.com/BASTION8/201_351_Zvyagin/assets/49448697/13fc43ed-7b5f-47e3-a69c-7af5ca3552fd"/>
 
 <h3 align="center">После входа в приложение мы увидим страницу «Счета», на которой внутри панели отображаются элементы для просмотра ID счёта, суммы и даты открытия:</h3> 
-<img align="center" src="https://github.com/BASTION8/201_351_Zvyagin/assets/49448697/92aee70e-178e-4a1a-9787-d6f072a6e42a"/>
+<img align="center" src="https://github.com/BASTION8/201_351_Zvyagin/assets/49448697/1756ce05-07de-47b0-8af7-c3b03a0d2972"/>
 
 <h3 align="center">Также присутствуют кнопки для пролистывания текущего счёта вперёд и назад, расположенные под панелью:</h3>
 <img align="center" src="https://github.com/BASTION8/201_351_Zvyagin/assets/49448697/b7013b5f-d9b3-47ac-9792-9eaf84b05560"/>
 
 <h3 align="center">При пролистывании в поля загружаются соответствующие данные нового счёта, и меняется фоновый цвет:</h3>
-<img align="center" src=""/>
+<img align="center" src="https://github.com/BASTION8/201_351_Zvyagin/assets/49448697/f4804898-2208-40fa-9542-f467a5e26010"/>
 
 <h3 align="center">Московский Политех 2023</h3>
