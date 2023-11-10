@@ -10,6 +10,8 @@
 #include <QJsonObject>          // Для работы с Json форматом
 #include <QJsonDocument>        //
 #include <QFile>
+#include <QTimer>
+#include <QPropertyAnimation>
 
 //using namespace std;
 
@@ -30,6 +32,7 @@ public:
     QList<Score> * scores = nullptr;
     QList<QString> colors = {"background-color: #ff0000;", "background-color: #66ff66;", "background-color: #ffff00;",
                              "background-color: #ff7700;", "background-color: #006699;"};
+    void delay();
 
 private:
     Ui::app_wallet *ui;

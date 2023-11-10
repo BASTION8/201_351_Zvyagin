@@ -17,7 +17,7 @@ app_wallet::app_wallet(QWidget *parent)
 
 void app_wallet::create()
 {
-    QJsonDocument json_doc;
+//    QJsonDocument json_doc;
 
 //    QFile file("scores.txt");
 //    file.open(QIODevice::ReadOnly);
@@ -93,11 +93,29 @@ void app_wallet::on_prevBtn_clicked()
 {
     if (index > 0)
     {
+        QRect geo = ui->swipeWidget->geometry();
+        QPropertyAnimation *animation = new QPropertyAnimation(ui->swipeWidget, "geometry");
+        animation->setDuration(1000);
+        animation->setStartValue(geo);
+        animation->setEndValue(QRect(1000, geo.y(), geo.width(), geo.height()));
+        animation->start();
+
+        delay();
+
+        ui->swipeWidget->setGeometry(QRect(-1000, geo.y(), geo.width(), geo.height()));
+
+        animation->setDuration(1000);
+        animation->setStartValue(QRect(-1000, geo.y(), geo.width(), geo.height()));
+        animation->setEndValue(geo);
+        animation->start();
+
         index -= 1;
         ui->idLabel->setText(QString::number(scores->toList()[index].id));
         ui->summLabel->setText(QString::number(scores->toList()[index].summ));
         ui->dateLabel->setText(scores->toList()[index].date);
         ui->label->setStyleSheet(colors[index % 5]);
+
+        delay();
     }
     else
     {
@@ -110,14 +128,39 @@ void app_wallet::on_nextBtn_clicked()
 {
     if (index < scores->length() - 1)
     {
+        QRect geo = ui->swipeWidget->geometry();
+        QPropertyAnimation *animation = new QPropertyAnimation(ui->swipeWidget, "geometry");
+        animation->setDuration(1000);
+        animation->setStartValue(geo);
+        animation->setEndValue(QRect(-1000, geo.y(), geo.width(), geo.height()));
+        animation->start();
+
+        delay();
+
+        ui->swipeWidget->setGeometry(QRect(1000, geo.y(), geo.width(), geo.height()));
+
+        animation->setDuration(1000);
+        animation->setStartValue(QRect(1000, geo.y(), geo.width(), geo.height()));
+        animation->setEndValue(geo);
+        animation->start();
+
         index += 1;
         ui->idLabel->setText(QString::number(scores->toList()[index].id));
         ui->summLabel->setText(QString::number(scores->toList()[index].summ));
         ui->dateLabel->setText(scores->toList()[index].date);
         ui->label->setStyleSheet(colors[index % 5]);
+
+        delay();
     }
     else
     {
         return;
+    }
+}
+
+void app_wallet::delay() {
+    QTime dieTime = QTime::currentTime().addSecs(1);
+    while (QTime::currentTime() < dieTime) {
+        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
     }
 }
