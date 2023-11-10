@@ -15,17 +15,8 @@ app_wallet::app_wallet(QWidget *parent)
     create();
 }
 
-
-//заполнение таблицы
 void app_wallet::create()
 {
-    // Обнуляем счетчики
-    k = 0;
-    summary = 0;
-
-    // Расшифровываем файл и проверяем пуст ли он
-    //scores = Crypto::decrypt_file(hex_hash);
-
     QJsonDocument json_doc;
 
     QFile file("scores.txt");
@@ -48,6 +39,7 @@ void app_wallet::create()
         ui->summLabel->setText(QString::number(scores->toList()[0].summ));
         ui->dateLabel->setText(scores->toList()[0].date);
     }
+    index = 0;
 }
 
 app_wallet::~app_wallet()
@@ -94,11 +86,31 @@ void app_wallet::saveToFile()
 
 void app_wallet::on_prevBtn_clicked()
 {
-
+    if (index > 0)
+    {
+        index -= 1;
+        ui->idLabel->setText(QString::number(scores->toList()[index].id));
+        ui->summLabel->setText(QString::number(scores->toList()[index].summ));
+        ui->dateLabel->setText(scores->toList()[index].date);
+    }
+    else
+    {
+        return;
+    }
 }
 
 
 void app_wallet::on_nextBtn_clicked()
 {
-
+    if (index < scores->length() - 1)
+    {
+        index += 1;
+        ui->idLabel->setText(QString::number(scores->toList()[index].id));
+        ui->summLabel->setText(QString::number(scores->toList()[index].summ));
+        ui->dateLabel->setText(scores->toList()[index].date);
+    }
+    else
+    {
+        return;
+    }
 }

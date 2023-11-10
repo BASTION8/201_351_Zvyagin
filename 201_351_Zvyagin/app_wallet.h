@@ -25,12 +25,9 @@ public:
     app_wallet(QWidget *parent = nullptr);
     ~app_wallet();
 
-    int summary;            // Сумма
-    int k;                  // Счетчик нажатий
+    int index = 0;
     void create();          // Создание таблицы
     QList<Score> * scores = nullptr;
-    QString numbers[9];     // Массив чисел карт
-    QString status[9];      // Массив открытых или закрытых карт
 
 private:
     Ui::app_wallet *ui;
