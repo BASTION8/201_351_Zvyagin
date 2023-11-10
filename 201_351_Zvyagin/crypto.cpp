@@ -9,7 +9,7 @@ Crypto::Crypto()
 QList<Score> * Crypto::decrypt_file(const QByteArray &key)
 {
     QFile encrypted_file;
-    encrypted_file.setFileName("scores.enc");
+    encrypted_file.setFileName("D:\\scores.enc");
     encrypted_file.open(QIODevice::ReadWrite);
     if (!encrypted_file.isOpen())
     {
