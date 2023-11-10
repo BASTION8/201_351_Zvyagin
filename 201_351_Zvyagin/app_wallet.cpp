@@ -19,27 +19,31 @@ void app_wallet::create()
 {
     QJsonDocument json_doc;
 
-    QFile file("scores.txt");
-    file.open(QIODevice::ReadOnly);
-    json_doc = QJsonDocument::fromJson(file.readAll());
-    file.close();
+//    QFile file("scores.txt");
+//    file.open(QIODevice::ReadOnly);
+//    json_doc = QJsonDocument::fromJson(file.readAll());
+//    file.close();
 
-    QJsonArray array = json_doc.object().value("list").toArray();
-    scores = new QList<Score>();
-    for (auto item : array) {
-        Score new_record;
-        new_record.id = item.toObject().value("id").toString().toInt();
-        new_record.summ = item.toObject().value("summ").toString().toInt();
-        new_record.date = item.toObject().value("date").toString();
-        scores->append(new_record);
-        qDebug() << new_record.id << new_record.summ << new_record.date;
-    }
+//    QJsonArray array = json_doc.object().value("list").toArray();
+//    scores = new QList<Score>();
+//    for (auto item : array) {
+//        Score new_record;
+//        new_record.id = item.toObject().value("id").toString().toInt();
+//        new_record.summ = item.toObject().value("summ").toString().toInt();
+//        new_record.date = item.toObject().value("date").toString();
+//        scores->append(new_record);
+//        qDebug() << new_record.id << new_record.summ << new_record.date;
+//    }
+
+    scores = Crypto::decrypt_file(hex_hash);
+
     if (!scores->isEmpty()) {
         ui->idLabel->setText(QString::number(scores->toList()[0].id));
         ui->summLabel->setText(QString::number(scores->toList()[0].summ));
         ui->dateLabel->setText(scores->toList()[0].date);
     }
     index = 0;
+    saveToFile();
 }
 
 app_wallet::~app_wallet()
@@ -56,8 +60,8 @@ void app_wallet::saveToFile()
     for (Score item : *scores)
     {
         QJsonObject tmp;
-        tmp.insert("id", item.id);
-        tmp.insert("summ", item.summ);
+        tmp.insert("id", QString::number(item.id));
+        tmp.insert("summ", QString::number(item.summ));
         tmp.insert("date", item.date);
         array.append(tmp);
     }
