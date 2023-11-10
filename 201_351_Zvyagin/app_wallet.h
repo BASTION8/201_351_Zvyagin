@@ -28,6 +28,8 @@ public:
     int index = 0;
     void create();          // Создание таблицы
     QList<Score> * scores = nullptr;
+    QList<QString> colors = {"background-color: #ff0000;", "background-color: #66ff66;", "background-color: #ffff00;",
+                             "background-color: #ff7700;", "background-color: #006699;"};
 
 private:
     Ui::app_wallet *ui;

@@ -41,6 +41,7 @@ void app_wallet::create()
         ui->idLabel->setText(QString::number(scores->toList()[0].id));
         ui->summLabel->setText(QString::number(scores->toList()[0].summ));
         ui->dateLabel->setText(scores->toList()[0].date);
+        ui->label->setStyleSheet(colors[index % 5]);
     }
     index = 0;
     saveToFile();
@@ -96,6 +97,7 @@ void app_wallet::on_prevBtn_clicked()
         ui->idLabel->setText(QString::number(scores->toList()[index].id));
         ui->summLabel->setText(QString::number(scores->toList()[index].summ));
         ui->dateLabel->setText(scores->toList()[index].date);
+        ui->label->setStyleSheet(colors[index % 5]);
     }
     else
     {
@@ -112,6 +114,7 @@ void app_wallet::on_nextBtn_clicked()
         ui->idLabel->setText(QString::number(scores->toList()[index].id));
         ui->summLabel->setText(QString::number(scores->toList()[index].summ));
         ui->dateLabel->setText(scores->toList()[index].date);
+        ui->label->setStyleSheet(colors[index % 5]);
     }
     else
     {
