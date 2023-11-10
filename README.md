@@ -4,7 +4,7 @@
 <img align="center" src="https://github.com/BASTION8/201_351_Zvyagin/assets/49448697/13fc43ed-7b5f-47e3-a69c-7af5ca3552fd"/>
 
 <h3 align="center">При вводе неправильного пароля, высветится ошибка:</h3>
-<img align="center" src="https://github.com/BASTION8/201_351_Zvyagin/assets/49448697/2b88425c-8c89-4cc2-ad83-f0d452ffe90a"/>
+<img align="center" src="https://github.com/BASTION8/201_351_Zvyagin/assets/49448697/0dd22c43-ab49-476c-b5a0-0fedad10c0df"/>
 
 <h3 align="center">После входа в приложение мы увидим страницу «Счет», на которой внутри панели отображаются элементы для просмотра ID счёта, суммы и даты открытия:</h3> 
 <img align="center" src="https://github.com/BASTION8/201_351_Zvyagin/assets/49448697/1756ce05-07de-47b0-8af7-c3b03a0d2972"/>
